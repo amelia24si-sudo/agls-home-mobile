@@ -1,8 +1,14 @@
 <resources>
-    <string name="app_name">Home App</string>
+    <string name="app_name">My Library</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="desc">Welcome back to My Library</string>
     <string name="desc2">Semoga anda menikmati aplikasi kami!</string>
+    <string name="forgotpw">Don’t have any account? Sign Up</string>
+    <string name="home">Home</string>
+    <string name="home2">Welcome to My Library</string>
+    <string name="kalkulator">Kalkulator</string>
+    <string name="logout">LOGOUT</string>
+    <string name="tanya">Apakah anda ingin keluar dari My Library?</string>
 </resources>
