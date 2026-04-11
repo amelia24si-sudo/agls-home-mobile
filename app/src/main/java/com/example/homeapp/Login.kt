@@ -23,9 +23,6 @@ class Login : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-//        val inputUser: EditText = findViewById(R.id.Username)
-//        val inputPassword: EditText = findViewById(R.id.Password)
-//        val login: Button = findViewById(R.id.btnlogin)
 
         binding.btnlogin.setOnClickListener{
             val user = binding.Username.text
@@ -37,6 +34,8 @@ class Login : AppCompatActivity() {
                     .setPositiveButton("Ya") { dialog, _ ->
                         val intent = Intent(this, WelcomeActivity::class.java)
                         startActivity(intent)
+                        Toast.makeText(this, "Anda telah login, selamat datang $user!", Toast.LENGTH_SHORT)
+                            .show()
                         dialog.dismiss()
                         Log.e("Info Dialog", "Anda memilih Ya!")
                     }
@@ -44,8 +43,6 @@ class Login : AppCompatActivity() {
                         dialog.dismiss()
                         Log.e("Info Dialog", "Anda memilih Tidak!")
                     }
-                    .show()
-                Toast.makeText(this, "Anda telah login, selamat datang $user!", Toast.LENGTH_SHORT)
                     .show()
             } else{
                 Toast.makeText(this, "Harap isi username dan password anda!", Toast.LENGTH_SHORT).show()

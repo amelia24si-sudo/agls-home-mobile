@@ -6,7 +6,6 @@
     android:background="@drawable/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".HomeActivity">
     <ImageButton
         android:id="@+id/backbtn"
@@ -65,7 +64,7 @@
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/white"
         app:cardCornerRadius="20dp"
-        app:cardElevation="30dp"
+        app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.126"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +79,6 @@
                 android:id="@+id/imageView3"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
