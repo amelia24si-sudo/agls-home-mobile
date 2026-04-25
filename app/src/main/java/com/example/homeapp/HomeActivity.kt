@@ -28,5 +28,9 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, LogoutActivity::class.java)
             startActivity(intent)
         }
+        binding.btnumkm.setOnClickListener {
+            val intent = Intent(this, WebViewActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

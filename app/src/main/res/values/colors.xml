@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
     <color name="black100">#0B0B0B</color>
     <color name="black80">#343434</color>
     <color name="black60">#656565</color>
     <color name="black70">#4A4A4A</color>
+
+<!--BINA DESA COLOR-->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="primary1">#ffbe33</color>
+    <color name="primary2">#222831</color>
+    <color name="primary3">#1f1f1f</color>
 </resources>
