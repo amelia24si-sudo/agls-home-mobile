@@ -12,4 +12,13 @@
     <string name="binadesa">UMKM Kami</string>
     <string name="logout">LOGOUT</string>
     <string name="tanya">Apakah anda ingin keluar dari My Library?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+
 </resources>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pixel11"
+    tools:context=".About.AboutFragment">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center_horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/primary2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="UMKM Kami"
+                        android:textColor="@color/primary1"
+                        android:textSize="28sp"
+                        android:fontFamily="@font/typewriter_bold"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:lineSpacingExtra="4dp"
+                        android:text="UMKM Kami hadir sebagai solusi atas tantangan yang dihadapi oleh pelaku usaha di pedesaan, seperti keterbatasan akses pasar, modal, dan pengetahuan digital. Website ini bukan sekadar marketplace, tetapi merupakan ekosistem yang komprehensif untuk memberdayakan, mempromosikan, dan mengembangkan potensi ekonomi desa."
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:justificationMode="inter_word"
+                        android:fontFamily="@font/typewriterblack_thin" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="@color/primary2" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="&quot;Memberdayakan UMKM lokal berarti membangun ekonomi bangsa dari akar rumput.&quot;"
+                        android:textColor="@color/primary1"
+                        android:textSize="16sp"
+                        android:alpha="0.9"
+                        android:textStyle="italic"
+                        android:fontFamily="@font/typewriter_bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="@color/primary2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Visi"
+                        android:textColor="@color/primary1"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/typewriter_bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:lineSpacingExtra="4dp"
+                        android:text="Menjadi platform digital terdepan yang mendorong kemandirian ekonomi desa dan memperkenalkan kekayaan produk UMKM lokal ke kancah nasional maupun global."
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:justificationMode="inter_word"
+                        android:fontFamily="@font/typewriterblack_thin" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Misi"
+                        android:textColor="@color/primary1"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/typewriter_bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:lineSpacingExtra="4dp"
+                        android:text="Memberdayakan UMKM Kami dengan memperluas pasar mereka secara online, disertai dengan program pelatihan untuk meningkatkan kapabilitas. Secara bersamaan, kami berupaya melestarikan budaya lokal melalui promosi produk."
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:justificationMode="inter_word"
+                        android:fontFamily="@font/typewriterblack_thin" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.homeapp
+package com.example.homeapp.Home
 
 import android.os.Bundle
 import android.view.Menu
@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.homeapp.R
 import com.example.homeapp.databinding.ActivityWebViewBinding
 
 class WebViewActivity : AppCompatActivity() {

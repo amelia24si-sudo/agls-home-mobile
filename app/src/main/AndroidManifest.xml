@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,7 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HomeApp">
         <activity
-            android:name=".WebViewActivity"
+            android:name=".BaseActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HomeApp" />
+        <activity
+            android:name=".Home.WebViewActivity"
             android:exported="false" />
         <activity
             android:name=".SplashScreenActivity"
@@ -30,14 +36,14 @@
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".KalkulatorActivity"
+            android:name=".Home.KalkulatorActivity"
             android:exported="false" />
         <activity
             android:name=".WelcomeActivity"
             android:exported="false" />
         <activity
             android:name=".Login"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />

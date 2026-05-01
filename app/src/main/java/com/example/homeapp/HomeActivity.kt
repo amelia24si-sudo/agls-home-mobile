@@ -6,6 +6,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.homeapp.Home.KalkulatorActivity
+import com.example.homeapp.Home.WebViewActivity
 import com.example.homeapp.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -22,10 +24,6 @@ class HomeActivity : AppCompatActivity() {
         }
         binding.btnKal.setOnClickListener {
             val intent = Intent(this, KalkulatorActivity::class.java)
-            startActivity(intent)
-        }
-        binding.backbtn.setOnClickListener {
-            val intent = Intent(this, LogoutActivity::class.java)
             startActivity(intent)
         }
         binding.btnumkm.setOnClickListener {

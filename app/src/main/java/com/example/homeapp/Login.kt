@@ -21,7 +21,7 @@ class Login : AppCompatActivity() {
         // Kondisi jika isLogin bernilai true
         val isLogin = sharedPref.getBoolean("isLogin", false)
         if (isLogin) {
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, BaseActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -49,10 +49,10 @@ class Login : AppCompatActivity() {
                         editor.putString("username", user)
                         editor.apply()
                         // Gunakan this@Login untuk memastikan context merujuk pada Activity
-                        val intent = Intent(this@Login, WelcomeActivity::class.java)
+                        val intent = Intent(this, WelcomeActivity::class.java)
                         startActivity(intent)
                         finish()
-                        Toast.makeText(this@Login, "Anda telah login, selamat datang $user!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Anda telah login, selamat datang $user!", Toast.LENGTH_SHORT).show()
                         dialog.dismiss()
                         Log.e("Info Dialog", "Anda memilih Ya!")
                     }

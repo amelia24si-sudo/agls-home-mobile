@@ -1,4 +1,4 @@
-package com.example.homeapp
+package com.example.homeapp.Home
 
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -12,6 +12,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.homeapp.HomeActivity
+import com.example.homeapp.R
 import com.example.homeapp.databinding.ActivityKalkulatorBinding
 import com.google.android.material.snackbar.Snackbar
 

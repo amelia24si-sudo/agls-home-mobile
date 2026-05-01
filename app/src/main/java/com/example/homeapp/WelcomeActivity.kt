@@ -6,7 +6,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import com.example.homeapp.databinding.ActivityWelcomeBinding
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding
@@ -20,11 +23,11 @@ class WelcomeActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        binding.nextbtn.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
+        lifecycleScope.launch {
+            delay(5000) //simulasi pengambilan data selama 2 detik
+
+            var intent = Intent(this@WelcomeActivity, BaseActivity::class.java)
             startActivity(intent)
-        }
-        binding.backbtn.setOnClickListener {
             finish()
         }
     }
