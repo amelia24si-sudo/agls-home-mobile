@@ -24,7 +24,7 @@ class WelcomeActivity : AppCompatActivity() {
             insets
         }
         lifecycleScope.launch {
-            delay(5000) //simulasi pengambilan data selama 2 detik
+            delay(5000) //simulasi pengambilan data selama 5 detik
 
             var intent = Intent(this@WelcomeActivity, BaseActivity::class.java)
             startActivity(intent)
