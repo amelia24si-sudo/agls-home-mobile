@@ -11,21 +11,27 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.homeapp.databinding.ActivityLoginBinding
+import com.example.homeapp.databinding.ActivityRegistersBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.util.Calendar
 
-class Login : AppCompatActivity() {
-    private lateinit var binding: ActivityLoginBinding
+class RegistersActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityRegistersBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityRegistersBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // SharedPreferences untuk menyimpan data registrasi
         val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
-
+        val isLogin = sharedPref.getBoolean("isLogin", false)
+        if (isLogin) {
+            val intent = Intent(this,   LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -33,7 +39,8 @@ class Login : AppCompatActivity() {
         }
 
         // 1. Setup Spinner untuk Agama
-        val agamaList = arrayOf("Islam", "Kristen Protestan", "Katolik", "Hindu", "Buddha", "Konghucu")
+        val agamaList =
+            arrayOf("Islam", "Kristen Protestan", "Katolik", "Hindu", "Buddha", "Konghucu")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, agamaList)
         binding.spinnerAgama.adapter = adapter
 
@@ -44,12 +51,13 @@ class Login : AppCompatActivity() {
             val month = calendar.get(Calendar.MONTH)
             val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-            val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
-                val date = "$selectedDay/${selectedMonth + 1}/$selectedYear"
-                binding.DOB.setText(date)
-                // Hapus error jika user sudah memilih tanggal
-                binding.DOB.error = null
-            }, year, month, day)
+            val datePickerDialog =
+                DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
+                    val date = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+                    binding.DOB.setText(date)
+                    // Hapus error jika user sudah memilih tanggal
+                    binding.DOB.error = null
+                }, year, month, day)
             datePickerDialog.show()
         }
 
@@ -57,106 +65,91 @@ class Login : AppCompatActivity() {
         binding.rgGender.setOnCheckedChangeListener { _, _ ->
             binding.rbPerempuan.error = null // Menghapus tanda error jika gender sudah dipilih
         }
-
         // 4. Aksi Tombol Register
         binding.btnregister.setOnClickListener {
-            // Ambil semua nilai
+            // Ambil semua nilai dari inputan
             val nama = binding.Nama.text.toString().trim()
             val dob = binding.DOB.text.toString().trim()
             val username = binding.Username.text.toString().trim()
             val password = binding.Password.text.toString().trim()
             val confirmPassword = binding.ConfirmPassword.text.toString().trim()
             val agama = binding.spinnerAgama.selectedItem?.toString() ?: ""
-
-            // Ambil id RadioButton yang dipilih
             val selectedGenderId = binding.rgGender.checkedRadioButtonId
 
             var isValid = true
-
-            // --- VALIDASI ERROR PADA MASING-MASING KOLOM ---
-
             if (nama.isEmpty()) {
-                binding.Nama.error = "Nama Lengkap tidak boleh kosong!"
-                binding.Nama.requestFocus()
+                binding.Nama.error = "Nama Lengkap wajib diisi!"
                 isValid = false
             }
 
             if (dob.isEmpty()) {
-                binding.DOB.error = "Tanggal Lahir harus diisi!"
-                if (isValid) binding.DOB.requestFocus()
+                binding.DOB.error = "Tanggal Lahir wajib diisi!"
                 isValid = false
             }
 
             var gender = ""
             if (selectedGenderId == -1) {
-                // Untuk RadioGroup, kita menempelkan error pada salah satu RadioButton (biasanya yang terakhir)
-                binding.rbPerempuan.error = "Pilih jenis kelamin Anda!"
+                // Menampilkan error pada RadioButton terakhir agar user sadar ada yang kurang
+                binding.rbPerempuan.error = "Pilih jenis kelamin!"
                 isValid = false
             } else {
                 gender = findViewById<RadioButton>(selectedGenderId).text.toString()
+                binding.rbPerempuan.error = null
             }
 
             if (username.isEmpty()) {
-                binding.Username.error = "Username tidak boleh kosong!"
-                if (isValid) binding.Username.requestFocus()
+                binding.Username.error = "Username wajib diisi!"
                 isValid = false
             }
 
+            // --- VALIDASI 3: Password & Confirm Password ---
+
             if (password.isEmpty()) {
-                binding.Password.error = "Password tidak boleh kosong!"
-                if (isValid) binding.Password.requestFocus()
-                isValid = false
-            } else if (password.length < 6) { // Tambahan opsional: batas minimal password
-                binding.Password.error = "Password minimal 6 karakter!"
-                if (isValid) binding.Password.requestFocus()
+                binding.Password.error = "Password wajib diisi!"
                 isValid = false
             }
 
             if (confirmPassword.isEmpty()) {
-                binding.ConfirmPassword.error = "Harap konfirmasi password Anda!"
-                if (isValid) binding.ConfirmPassword.requestFocus()
+                binding.ConfirmPassword.error = "Konfirmasi Password wajib diisi!"
                 isValid = false
             } else if (password != confirmPassword) {
-                binding.ConfirmPassword.error = "Password dan Confirm Password tidak sama!"
-                if (isValid) binding.ConfirmPassword.requestFocus()
-                isValid = false
-            }
-            if (isValid && username != password) {
-                binding.Password.error = "Username dan Password harus sama untuk mendaftar!"
-                binding.Username.error = "Username dan Password harus sama!"
-                if (isValid) binding.Username.requestFocus()
+                // Pesan khusus jika password tidak cocok
+                binding.ConfirmPassword.error = "Password tidak cocok!"
                 isValid = false
             }
 
-            // --- JIKA SEMUA VALIDASI LULUS ---
+            // --- VALIDASI TAMBAHAN: Validasi Agama (Jika perlu) ---
+            if (agama.isEmpty()) {
+                Toast.makeText(this, "Pilih agama Anda!", Toast.LENGTH_SHORT).show()
+                isValid = false
+            }
+
+            // --- PROSES SIMPAN (VALIDASI LULUS) ---
             if (isValid) {
                 MaterialAlertDialogBuilder(this)
-                    .setTitle("Konfirmasi Registrasi")
-                    .setMessage("Apakah data yang Anda masukkan sudah benar?")
-                    .setPositiveButton("Ya, Simpan") { dialog, _ ->
+                    .setTitle("Konfirmasi")
+                    .setMessage("Simpan data registrasi?")
+                    .setPositiveButton("Simpan") { _, _ ->
 
-                        // Simpan seluruh isian ke SharedPreferences untuk dicek saat Login nanti
+                        // --- VALIDASI 4: Simpan ke SharedPreferences ---
                         val editor = sharedPref.edit()
                         editor.putString("reg_nama", nama)
                         editor.putString("reg_dob", dob)
                         editor.putString("reg_gender", gender)
                         editor.putString("reg_agama", agama)
                         editor.putString("reg_username", username)
-                        editor.putString("reg_password", password)
+                        editor.putString("reg_password", password) // Disimpan untuk cek login
                         editor.apply()
 
-                        Toast.makeText(this, "Registrasi berhasil! Silakan Login.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Registrasi Berhasil!", Toast.LENGTH_SHORT).show()
 
-                        // Pindah ke Halaman Login (atau finish jika activity ini dipanggil dari Login)
-                        val intent = Intent(this, WelcomeActivity::class.java)
-                        startActivity(intent)
+                        startActivity(Intent(this, LoginActivity::class.java))
                         finish()
-
-                        dialog.dismiss()
                     }
-                    .setNegativeButton("Periksa Kembali") { dialog, _ ->
-                        dialog.dismiss()
-                    }
+                    .setNegativeButton("Batal", null)
+                    .show()
+            } else {
+                Toast.makeText(this, "Mohon lengkapi/perbaiki data yang salah", Toast.LENGTH_SHORT)
                     .show()
             }
         }

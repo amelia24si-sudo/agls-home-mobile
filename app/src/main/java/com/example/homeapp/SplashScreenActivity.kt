@@ -23,7 +23,7 @@ class SplashScreenActivity : AppCompatActivity() {
         lifecycleScope.launch {
             delay(2000) //simulasi pengambilan data selama 2 detik
 
-            var intent = Intent(this@SplashScreenActivity, Login::class.java)
+            var intent = Intent(this@SplashScreenActivity, RegistersActivity::class.java)
             startActivity(intent)
             finish()
         }
