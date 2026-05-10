@@ -34,7 +34,7 @@ class BaseActivity : AppCompatActivity() {
             title = "My Library"
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
-            setHomeAsUpIndicator(R.drawable.round_arrow_back_ios_new_24)
+            setHomeAsUpIndicator(R.drawable.rounded_arrow_back_ios_24)
         }
 
         binding.toolbar.navigationIcon?.setTint(ContextCompat.getColor(this, R.color.black))
