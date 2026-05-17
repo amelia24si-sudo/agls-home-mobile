@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="@drawable/pixel11"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BaseActivity">
@@ -11,10 +11,13 @@
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="823dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBar" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar"
+        app:layout_constraintVertical_bias="0.0" />
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
@@ -26,21 +29,34 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:background="@color/white"
             android:layout_width="match_parent"
-            android:tint="@color/black"
-            app:titleTextAppearance="@style/CustomToolbarTitle"
             android:layout_height="?attr/actionBarSize"
-            app:titleTextColor="@color/primary3"
-            app:layout_scrollFlags="scroll|enterAlways"/>
+            android:background="@color/white"
+            android:tint="@color/black"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:titleTextAppearance="@style/CustomToolbarTitle"
+            app:titleTextColor="@color/primary3" />
 
     </com.google.android.material.appbar.AppBarLayout>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_view"
-        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+        style="@style/Widget.Material3.BottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primary1"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_bottom_nav_floating"
+        app:elevation="1dp"
+        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
+        app:itemBackground="@drawable/nav_item_bg_selector"
+        app:itemIconTint="@color/nav_item_color_selector"
+        app:itemTextColor="@color/nav_item_color_selector"
+        app:labelVisibilityMode="labeled"
+        app:itemPaddingTop="8dp"
+        app:itemPaddingBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

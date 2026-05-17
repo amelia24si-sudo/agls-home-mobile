@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.homeapp.About.AboutFragment
 import com.example.homeapp.Home.HomeFragment
+import com.example.homeapp.More.MoreFragment
 import com.example.homeapp.Profile.ProfileFragment
 import com.example.homeapp.databinding.ActivityBaseBinding
 
@@ -70,6 +71,11 @@ class BaseActivity : AppCompatActivity() {
                     true
                 }
 
+                R.id.more -> {
+                    replaceFragment(MoreFragment())
+                    true
+                }
+
                 else -> false // return false jika item tidak ada yang di klik
             }
         }
@@ -87,20 +93,12 @@ class BaseActivity : AppCompatActivity() {
             .commit()
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
+        return when (item.itemId) { // Tambahkan kata kunci 'when' di sini
             android.R.id.home -> {
                 onBackPressedDispatcher.onBackPressed()
                 true
             }
-            R.id.action_search -> {
-                Toast.makeText(this, "Search Clicked", Toast.LENGTH_SHORT).show()
-                true
-            }
-            R.id.action_settings -> {
-                Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT).show()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
+            else -> super.onOptionsItemSelected(item) // Tambahkan 'else' sebagai nilai balikan default
         }
     }
 }

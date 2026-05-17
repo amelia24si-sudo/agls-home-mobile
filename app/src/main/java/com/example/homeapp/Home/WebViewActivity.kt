@@ -73,14 +73,6 @@ class WebViewActivity : AppCompatActivity() {
                 onBackPressedDispatcher.onBackPressed()
                 true
             }
-            R.id.action_search -> {
-                Toast.makeText(this, "Search Clicked", Toast.LENGTH_SHORT).show()
-                true
-            }
-            R.id.action_settings -> {
-                Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT).show()
-                true
-            }
             else -> super.onOptionsItemSelected(item)
         }
     }
