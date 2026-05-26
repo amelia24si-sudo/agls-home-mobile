@@ -8,16 +8,6 @@
     android:layout_height="match_parent"
     tools:context=".BaseActivity">
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="823dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_nav_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBar"
-        app:layout_constraintVertical_bias="0.0" />
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
@@ -32,31 +22,71 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/white"
-            android:tint="@color/black"
             app:layout_scrollFlags="scroll|enterAlways"
             app:titleTextAppearance="@style/CustomToolbarTitle"
             app:titleTextColor="@color/primary3" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav_view"
-        style="@style/Widget.Material3.BottomNavigationView"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_tab_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/bottom_tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/bg_bottom_nav_floating"
-        app:elevation="1dp"
-        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
-        app:itemBackground="@drawable/nav_item_bg_selector"
-        app:itemIconTint="@color/nav_item_color_selector"
-        app:itemTextColor="@color/nav_item_color_selector"
-        app:labelVisibilityMode="labeled"
-        app:itemPaddingTop="8dp"
-        app:itemPaddingBottom="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:elevation="4dp"
+
+
+    app:tabIconTint="@color/nav_item_color_selector"
+    app:tabTextColor="@color/nav_item_color_selector"
+    app:tabSelectedTextColor="@color/primary3"
+
+
+    app:tabIndicatorFullWidth="false"
+    app:tabIndicatorGravity="bottom"
+    app:tabIndicatorColor="@color/primary3"
+
+
+    app:tabMode="fixed"
+    app:tabGravity="fill"
+
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+
+    <com.google.android.material.tabs.TabItem
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/home"
+        android:text="Home" />
+
+    <com.google.android.material.tabs.TabItem
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/info"
+        android:text="About" />
+
+    <com.google.android.material.tabs.TabItem
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/user"
+        android:text="Profile" />
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/more"
+            android:text="More" />
+
+</com.google.android.material.tabs.TabLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
