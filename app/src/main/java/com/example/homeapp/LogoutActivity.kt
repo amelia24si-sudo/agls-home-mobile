@@ -34,7 +34,7 @@ class LogoutActivity : AppCompatActivity() {
             logout.apply()
 
             //Pindah ke halaman Login
-            val intent = Intent(this, RegistersActivity::class.java)
+            val intent = Intent(this, SplashScreenActivity::class.java)
             // Tambahkan flags ini agar user tidak bisa tekan tombol 'Back' ke halaman Home setelah logout
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)

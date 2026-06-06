@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary1"
+    tools:context=".OnBoard.OnBoard3Fragment">
+    <ImageView
+        android:id="@+id/img_onboard"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_marginTop="148dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/typewriter_black"
+        android:text="Baca Kapan Pun &amp; Di Mana Pun"
+        android:textAlignment="center"
+        android:textColor="@color/primary2"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_onboard" />
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/typewriter_bold"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:text="Nikmati akses membaca secara offline tanpa kuota internet. Bangun perpustakaan impianmu sekarang juga!"
+        android:textColor="@color/primary2"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnStart"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/primary2"
+        android:fontFamily="@font/typewriter"
+        android:text="START"
+        android:textColor="@color/primary1"
+        android:textSize="15sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+</androidx.constraintlayout.widget.ConstraintLayout>
