@@ -19,4 +19,14 @@
         android:id="@+id/more"
         android:icon="@drawable/more"
         android:title="More" />
+
+    <item
+        android:id="@+id/note"
+        android:icon="@drawable/note"
+        android:title="More" />
+
+    <item
+        android:id="@+id/message"
+        android:icon="@drawable/chat"
+        android:title="More" />
 </menu>

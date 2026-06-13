@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HomeApp">
         <activity
+            android:name=".Message.MessageFormActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Note.NoteFormActivity"
+            android:exported="false" />
+        <activity
             android:name=".OnBoard.OnBoardActivity"
             android:exported="false" />
         <activity

@@ -62,6 +62,14 @@ class BaseActivity : AppCompatActivity() {
                     tab.text = "More"
                     tab.setIcon(R.drawable.more)
                 }
+                4 -> {
+                    tab.text = "Note"
+                    tab.setIcon(R.drawable.note)
+                }
+                5 -> {
+                    tab.text = "Chat"
+                    tab.setIcon(R.drawable.chat)
+                }
             }
         }.attach()
 

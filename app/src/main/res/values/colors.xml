@@ -8,7 +8,10 @@
 <!--BINA DESA COLOR-->
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
+    <color name="primary1dark">#cc8b00</color>
     <color name="primary1">#ffbe33</color>
+    <color name="primary1light">#ffdf99</color>
     <color name="primary2">#222831</color>
+    <color name="primary2light">#4c596d</color>
     <color name="primary3">#1f1f1f</color>
 </resources>

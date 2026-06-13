@@ -65,10 +65,10 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/typewriter"
                 android:text="Semua"
-                android:textColor="@color/primary3"
+                android:textColor="@color/primary1dark"
                 android:checked="true"
                 android:backgroundTint="#FED680"
-                app:rippleColor="#FDC54E"/>
+                app:rippleColor="@color/primary1light"/>
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_alat"
@@ -78,8 +78,8 @@
                 android:fontFamily="@font/typewriter"
                 android:text="Alat Hitung"
                 android:backgroundTint="#FED680"
-                android:textColor="@color/primary3"
-                app:rippleColor="#FDC54E"/>
+                android:textColor="@color/primary1dark"
+                app:rippleColor="@color/primary1light"/>
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_bina"
@@ -89,8 +89,8 @@
                 android:fontFamily="@font/typewriter"
                 android:text="Project"
                 android:backgroundTint="#FED680"
-                android:textColor="@color/primary3"
-                app:rippleColor="#FDC54E"/>
+                android:textColor="@color/primary1dark"
+                app:rippleColor="@color/primary1light"/>
 
         </com.google.android.material.chip.ChipGroup>
 
